@@ -23,7 +23,7 @@ pipeline {
         stage('Test') {
             steps{
                 sh  '''
-                    grep 'index.html' learn-jenkins-app/learn-jenkins-app/build
+                    grep 'index.html' /build
                     npm test -a
                 '''
             }
