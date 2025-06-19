@@ -19,7 +19,6 @@ pipeline {
                     ls -la
                 '''
             }
-            s
         }
         stage('Test') {
             steps{
