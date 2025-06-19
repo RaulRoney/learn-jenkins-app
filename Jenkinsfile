@@ -21,7 +21,7 @@ pipeline {
             }
             s
         }
-        stage('Test'){
+        stage('Test') {
             steps{
                 sh  '''
                     grep 'index.html' learn-jenkins-app/learn-jenkins-app/build
