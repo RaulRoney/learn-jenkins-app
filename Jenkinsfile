@@ -75,7 +75,9 @@ pipeline {
                     npm install netlify-cli@20.1.1
                     node_modules/.bin/netlify --version
                     echo "deploy to prod site id: $NETLIFY_SITE_ID"
-                    node_modules/.bin/netlify status
+                    node_modules/.bin/netlify status 
+                    node_modules/.bin/netlify netlify logout
+                    node_modules/.bin/netlify netlify login
                 '''
             }
         }
