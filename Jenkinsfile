@@ -17,6 +17,7 @@ pipeline {
             }
             steps {
                 sh '''
+                    echo 'teste git'
                     ls -la
                     node --version
                     npm --version
