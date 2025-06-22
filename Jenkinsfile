@@ -82,11 +82,34 @@ pipeline {
             }
         }
 
+        stage('Prod E2E') {
+            agent {
+                docker {
+                    image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
+                    reuseNode true
+                }
+            }
+
+            environment{
+                CI_ENVIRONMENT_UR = 'https://melodious-cheesecake-77ee62.netlify.app'
+            }
+
+
+            steps {
+                sh  '''
+                    npx playwright test --reporter=html
+                '''
+            }
+
+            post {
+                always {
+                    junit 'test-results-npm/junit.xml'
+                }
+            }
+
+        }                
     }
 
-    post {
-        always {
-            junit 'test-results-npm/junit.xml'
-        }
-    }
+    
+
 }
